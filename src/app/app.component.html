@@ -1,10 +1,17 @@
-<app-header></app-header>
+<app-header>
+  <div class="login-info">
+    <span>Harry Potter</span>
+    <app-button [buttonText]="headerButtonText"></app-button>
+  </div>
+</app-header>
 <div class="app-root">
   <!-- Search component -->
   <!--<app-search></app-search>-->
 
-  <!-- Info component -->
-  <!--<app-info></app-info>-->
+ <!-- Info component -->
+  <app-info [title]="infoTitleText" [text]="infoText">
+    <app-button [buttonText]="infoButtonText"></app-button>
+  </app-info>
 
   <!-- Course Card component -->
   <!--<app-course-card></app-course-card>-->

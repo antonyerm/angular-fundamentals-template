@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'courses-app';
+  headerButtonText = 'Logout';
+  infoButtonText = 'Add new course';
+  infoTitleText = 'Your List Is Empty';
+  infoText = "Please use 'Add New Course' button to add your first course";
 }
