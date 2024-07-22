@@ -49,7 +49,7 @@
           <!--Use the name `duration` for the form array.-->
           <input type="number" id="duration" placeholder="Input duration" formControlName="duration"/>
           <div class="course__duration">
-            {{ this.duration?.value}}
+            {{ this.duration?.value | duration }}
           </div>
         </div>
         <span *ngIf="this.duration?.errors?.['required'] && (this.isSubmitted || this.duration?.touched)" id="durationErrorMessage" class="text-danger">Duration is required.</span>
