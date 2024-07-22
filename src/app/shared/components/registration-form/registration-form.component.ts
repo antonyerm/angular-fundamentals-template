@@ -23,4 +23,16 @@ export class RegistrationFormComponent {
       console.log(this.registrationForm.value);
     } 
   }
+
+  get name() {
+    return this.registrationForm.get('name');
+  }
+
+  get email() {
+    return this.registrationForm.get('email');
+  }
+
+  get password() {
+    return this.registrationForm.get('password');
+  }
 }
