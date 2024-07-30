@@ -4,6 +4,7 @@ import {
 } from '@angular/forms';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-course-form',
@@ -11,14 +12,22 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./course-form.component.scss'],
 })
 export class CourseFormComponent {
-  constructor(public fb: FormBuilder, public library: FaIconLibrary) {
+  constructor(public fb: FormBuilder, public library: FaIconLibrary, private route: ActivatedRoute) {
     library.addIconPacks(fas);
     this.buildForm();
   }
   courseForm!: FormGroup;
+  id?: string;
   isSubmitted = false;
   addCourseButtonText = 'Create course';
   createAuthorButtonText = 'Create author';
+
+
+  ngOnInit() {
+    this.route.queryParams.subscribe( params => {
+      this.id = params['id'];
+    });
+  }
 
   // Use the names `title`, `description`, `author`, 'authors' (for authors list), `duration` for the form controls.
   buildForm() {

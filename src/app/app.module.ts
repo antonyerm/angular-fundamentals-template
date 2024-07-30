@@ -9,6 +9,7 @@ import { CoursesStoreService } from '@app/services/courses-store.service';
 import { CoursesService } from '@app/services/courses.service';
 import { CoursesModule } from '@app/features/courses/courses.module';
 import { CourseInfoModule } from '@features/course-info/course-info.module';
+import { AppRoutingModule } from '@app/app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { CourseInfoModule } from '@features/course-info/course-info.module';
     SharedModule,
     FontAwesomeModule,
     CoursesModule,
-    CourseInfoModule
+    CourseInfoModule,
+    AppRoutingModule
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
   bootstrap: [AppComponent],
