@@ -2,28 +2,46 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CourseFormComponent, LoginFormComponent, RegistrationFormComponent, SearchComponent } from './shared/components';
 import { CoursesComponent } from './features/courses/courses.component';
+import { AuthorizedGuard } from './auth/guards/authorized.guard';
+import { CourseInfoComponent } from './features/course-info/course-info.component';
+import { NotAuthorizedGuard } from './auth/guards/not-authorized.guard';
 
 export const routes: Routes = [
     /* Add your code here */
     {
         path: '/login',
-        component: LoginFormComponent
+        component: LoginFormComponent,
+        canActivate: [NotAuthorizedGuard]
     },
     {
         path: '/registration',
-        component: RegistrationFormComponent
+        component: RegistrationFormComponent,
+        canActivate: [NotAuthorizedGuard]
     },
     {
         path: '/courses',
-        component: CoursesComponent
+        component: CoursesComponent,
+        canLoad: [AuthorizedGuard]
     },
     {
         path: '/courses/add',
-        component: CourseFormComponent
+        component: CourseFormComponent,
+        canLoad: [AuthorizedGuard]
     },
     {
         path: '/courses/edit',
-        component: CourseFormComponent
+        component: CourseFormComponent,
+        canLoad: [AuthorizedGuard]
+    },
+    {
+        path: '/courses/edit/:id',
+        component: CourseFormComponent,
+        canLoad: [AuthorizedGuard]
+    },
+    {
+        path: '/course/:id',
+        component: CourseInfoComponent,
+        canLoad: [AuthorizedGuard]
     },
     {
         path: '/',
