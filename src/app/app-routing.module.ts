@@ -9,42 +9,42 @@ import { NotAuthorizedGuard } from './auth/guards/not-authorized.guard';
 export const routes: Routes = [
     /* Add your code here */
     {
-        path: '/login',
+        path: 'login',
         component: LoginFormComponent,
         canActivate: [NotAuthorizedGuard]
     },
     {
-        path: '/registration',
+        path: 'registration',
         component: RegistrationFormComponent,
         canActivate: [NotAuthorizedGuard]
     },
     {
-        path: '/courses',
+        path: 'courses',
         component: CoursesComponent,
         canLoad: [AuthorizedGuard]
     },
     {
-        path: '/courses/add',
+        path: 'courses/add',
         component: CourseFormComponent,
         canLoad: [AuthorizedGuard]
     },
     {
-        path: '/courses/edit',
+        path: 'courses/edit',
         component: CourseFormComponent,
         canLoad: [AuthorizedGuard]
     },
     {
-        path: '/courses/edit/:id',
+        path: 'courses/edit/:id',
         component: CourseFormComponent,
         canLoad: [AuthorizedGuard]
     },
     {
-        path: '/course/:id',
+        path: 'course/:id',
         component: CourseInfoComponent,
         canLoad: [AuthorizedGuard]
     },
     {
-        path: '/',
+        path: '',
         redirectTo: '/courses', pathMatch: 'full'
     }
 ];
