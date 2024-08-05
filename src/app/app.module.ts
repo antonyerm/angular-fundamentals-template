@@ -10,6 +10,8 @@ import { CoursesService } from '@app/services/courses.service';
 import { CoursesModule } from '@app/features/courses/courses.module';
 import { CourseInfoModule } from '@features/course-info/course-info.module';
 import { AppRoutingModule } from '@app/app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import * as fromCourses from '@app/store/courses/courses.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,9 +21,13 @@ import { AppRoutingModule } from '@app/app-routing.module';
     FontAwesomeModule,
     CoursesModule,
     CourseInfoModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forFeature(
+      fromCourses.coursesFeatureKey,
+      fromCourses.reducer
+    )
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
