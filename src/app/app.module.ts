@@ -12,6 +12,8 @@ import { CourseInfoModule } from '@features/course-info/course-info.module';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import * as fromCourses from '@app/store/courses/courses.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { effects, reducers } from './store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,9 @@ import * as fromCourses from '@app/store/courses/courses.reducer';
     StoreModule.forFeature(
       fromCourses.coursesFeatureKey,
       fromCourses.reducer
-    )
+    ),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects)
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
   bootstrap: [AppComponent]
