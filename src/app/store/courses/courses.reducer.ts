@@ -55,7 +55,7 @@ export const coursesReducer = createReducer( // Add your code here
         isSingleCourseLoading: false,
         errorMessage: error
     })),
-    on(CoursesActions.requestFilteredCourses, (state: CoursesState, { title }) => ({
+    on(CoursesActions.requestFilteredCourses, (state: CoursesState, { searchValue }) => ({
         ...state,
         isSearchState: true
     })),
