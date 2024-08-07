@@ -5,6 +5,7 @@ import { CoursesComponent } from './features/courses/courses.component';
 import { AuthorizedGuard } from './auth/guards/authorized.guard';
 import { CourseInfoComponent } from './features/course-info/course-info.component';
 import { NotAuthorizedGuard } from './auth/guards/not-authorized.guard';
+import { AdminGuard } from './user/guards/admin.guard';
 
 export const routes: Routes = [
     /* Add your code here */
@@ -26,12 +27,12 @@ export const routes: Routes = [
     {
         path: 'courses/add',
         component: CourseFormComponent,
-        canLoad: [AuthorizedGuard]
+        canLoad: [AdminGuard]
     },
     {
         path: 'courses/edit',
         component: CourseFormComponent,
-        canLoad: [AuthorizedGuard]
+        canLoad: [AdminGuard]
     },
     {
         path: 'courses/edit/:id',
@@ -39,7 +40,7 @@ export const routes: Routes = [
         canLoad: [AuthorizedGuard]
     },
     {
-        path: 'course/:id',
+        path: 'courses/:id',
         component: CourseInfoComponent,
         canLoad: [AuthorizedGuard]
     },

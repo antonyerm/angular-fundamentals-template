@@ -14,7 +14,7 @@ import { WINDOW } from './services/session-storage.service';
   providers: [
     SessionStorageService,
     AuthService,
-    { provide: WINDOW, useFactory: () => window }
+    { provide: WINDOW, useValue: window }
   ]
 })
 export class AuthModule { }
