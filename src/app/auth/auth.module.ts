@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SessionStorageService } from "./services/session-storage.service";
 import { AuthService } from "./services/auth.service";
 import { HttpClientModule } from '@angular/common/http';
-import { WINDOW } from './services/session-storage.service';
+//import { WINDOW } from './services/session-storage.service';
 
 @NgModule({
   declarations: [],
@@ -14,7 +14,7 @@ import { WINDOW } from './services/session-storage.service';
   providers: [
     SessionStorageService,
     AuthService,
-    { provide: WINDOW, useValue: window }
+    { provide: Window, useValue: window }
   ]
 })
 export class AuthModule { }
